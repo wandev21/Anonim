@@ -1,0 +1,14 @@
+[Unit]
+Description=new friend
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/newfriend
+ExecStart=/home/newfriend/venv/bin/python bot.py
+RestartSec=60
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
