@@ -8,7 +8,7 @@ class DeleteTestCD(CallbackData, prefix='delete_test'):
 def delete_test_menu(test_id: int):
     builder = InlineKeyboardBuilder()
     builder.button(
-        text='Удалить',
+        text='menghapus',
         callback_data=DeleteTestCD(test_id=test_id)
     )
     return builder.as_markup()
