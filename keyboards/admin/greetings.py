@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder, InlineKeyboardButton
 def greetings_menu(greeting_exist: bool = True):
     builder = InlineKeyboardBuilder()
 
-    add_text = '🔄 Заменить' if greeting_exist else '➕ Добавить'
+    add_text = '🔄 mengganti' if greeting_exist else '➕ menambahkan'
     builder.button(
         text=add_text,
         callback_data='change_greeting'
@@ -13,18 +13,18 @@ def greetings_menu(greeting_exist: bool = True):
 
     if greeting_exist:
         builder.button(
-            text='➖ Удалить',
+            text='➖ menghapus',
             callback_data='del_greeting'
         )
         builder.button(
-            text='👁 Показать',
+            text='👁 menunjukkan',
             callback_data='reveal_greeting'
         )
 
     builder.adjust(2)
 
     builder.button(
-        text='🔙 Назад',
+        text='🔙 kembali',
         callback_data="admin"
     )
 
