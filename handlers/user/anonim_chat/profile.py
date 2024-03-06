@@ -13,7 +13,7 @@ from filters.blockcommands import BlockCommandInConversaton
 
 router = Router()
 
-@router.message(F.text == '👤 Мой профиль', BlockCommandInConversaton())
+@router.message(F.text == '👤 Profil saya', BlockCommandInConversaton())
 async def show_profile(message: types.Message):
     user = await crud.get_anonim(
         user_id=message.from_user.id
@@ -21,7 +21,7 @@ async def show_profile(message: types.Message):
 
     name = message.from_user.full_name
     age = user.age
-    gender = '🧑🏼‍🦰Парень' if user.gender == 'male' else '👩🏻‍🦰Девушка'
+    gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
     interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
 
     await message.answer(
@@ -59,7 +59,7 @@ async def choose_age(message: types.Message, state: FSMContext):
 
     name = message.from_user.full_name
     age = user.age
-    gender = '🧑🏼‍🦰Парень' if user.gender == 'male' else '👩🏻‍🦰Девушка'
+    gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
     interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
 
     await message.answer(
@@ -91,7 +91,7 @@ async def get_gender(call: types.CallbackQuery):
 
     name = call.from_user.full_name
     age = user.age
-    gender = '🧑🏼‍🦰Парень' if user.gender == 'male' else '👩🏻‍🦰Девушка'
+    gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
     interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
 
     await call.message.edit_text(
@@ -123,7 +123,7 @@ async def get_gender(call: types.CallbackQuery):
 
     name = call.from_user.full_name
     age = user.age
-    gender = '🧑🏼‍🦰Парень' if user.gender == 'male' else '👩🏻‍🦰Девушка'
+    gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
     interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
 
     await call.message.edit_text(
