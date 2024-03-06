@@ -15,8 +15,8 @@ def gender_select(action: str) -> InlineKeyboardMarkup:
 def select_interests(action: str) -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
 
-    builder.button(text='Отношения', callback_data=f'{action}_relationship')
-    builder.button(text='Дружба', callback_data=f'{action}_friendship')
+    builder.button(text='hubungan', callback_data=f'{action}_relationship')
+    builder.button(text='persahabatan', callback_data=f'{action}_friendship')
 
     return builder.as_markup(resize_keyboard=True)
 
