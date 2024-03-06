@@ -22,7 +22,7 @@ async def show_profile(message: types.Message):
     name = message.from_user.full_name
     age = user.age
     gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
-    interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
+    interests = 'hubungan' if user.interests == 'relationship' else 'persahabatan'
 
     await message.answer(
         text=texts.ANONCHAT_PROFILE.format(
@@ -37,7 +37,7 @@ async def show_profile(message: types.Message):
 @router.callback_query(F.data == 'change_age')
 async def change_chat(call: types.CallbackQuery, state: FSMContext):
     await call.message.edit_text(
-        text='<i>Напиши, cколько тебе лет? (от 10 до 99)</i>'
+        text='<i>tulis, berapa umurmu? (dari 10 hingga 99)</i>'
         )
     await state.set_state(Registration.change_age)
 
@@ -45,7 +45,7 @@ async def change_chat(call: types.CallbackQuery, state: FSMContext):
 async def choose_age(message: types.Message, state: FSMContext):
     if not message.text.isdigit(): 
         await state.clear()
-        return await message.reply('Вы ввели не число!')
+        return await message.reply('anda tidak memasukkan nomor!')
     if int(message.text) < 14 or int(message.text) > 99: return await message.reply('Возраст не подходит по условиям!')
 
     await crud.change_age(
@@ -60,7 +60,7 @@ async def choose_age(message: types.Message, state: FSMContext):
     name = message.from_user.full_name
     age = user.age
     gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
-    interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
+    interests = 'hubungan' if user.interests == 'relationship' else 'persahabatan'
 
     await message.answer(
         text=texts.ANONCHAT_PROFILE.format(
@@ -75,7 +75,7 @@ async def choose_age(message: types.Message, state: FSMContext):
 @router.callback_query(F.data == 'change_gender')
 async def change_gender(call: types.CallbackQuery):
     await call.message.edit_text(
-        text='<i>Выбери ниже, какого ты пола?</i>',
+        text='<i>pilih di bawah jenis kelamin anda?</i>',
         reply_markup=registration.gender_select(action='edit-gender')
     )
 
@@ -92,7 +92,7 @@ async def get_gender(call: types.CallbackQuery):
     name = call.from_user.full_name
     age = user.age
     gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
-    interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
+    interests = 'hubungan' if user.interests == 'relationship' else 'persahabatan'
 
     await call.message.edit_text(
         text=texts.ANONCHAT_PROFILE.format(
@@ -107,7 +107,7 @@ async def get_gender(call: types.CallbackQuery):
 @router.callback_query(F.data == 'change_chat')
 async def change_chat(call: types.CallbackQuery):
     await call.message.edit_text(
-        text='<i>Выбери ниже, что тебя интересует?</i>',
+        text='<i>pilih di bawah apa yang menarik minat anda?</i>',
         reply_markup=registration.select_interests(action='edit-interest')
     )
 
@@ -124,7 +124,7 @@ async def get_gender(call: types.CallbackQuery):
     name = call.from_user.full_name
     age = user.age
     gender = '🧑🏼‍🦰laki-laki' if user.gender == 'male' else '👩🏻‍🦰wanita'
-    interests = 'Отношения' if user.interests == 'relationship' else 'Дружба'
+    interests = 'hubungan' if user.interests == 'relationship' else 'persahabatan'
 
     await call.message.edit_text(
         text=texts.ANONCHAT_PROFILE.format(
